@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\vidar.erkendal\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\vidar.erkendal\\.nuget\\packages"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VLzExxHHD9NmRRfTyXwcHvIPXEwJ99ZG1o0jc5kNkNxC6vJoKmwdCi2RI+t5iUkor0tTasjPhDtCzZTVHMdTGw==",
+  "success": true,
+  "projectFilePath": "C:\\NTI 2020\\programmering\\Ht 20 projekt\\ht 20 projekt\\ht 20 projekt.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vidar.erkendal\\.nuget\\packages\\raylib-cs\\3.1.5\\raylib-cs.3.1.5.nupkg.sha512",
+    "C:\\Users\\vidar.erkendal\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

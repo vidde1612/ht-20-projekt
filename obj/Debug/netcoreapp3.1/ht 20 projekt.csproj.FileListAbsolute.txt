@@ -1,0 +1,20 @@
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.csprojAssemblyReference.cache
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.AssemblyInfoInputs.cache
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.AssemblyInfo.cs
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.csproj.CoreCompileInputs.cache
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.exe
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.deps.json
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.runtimeconfig.json
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.runtimeconfig.dev.json
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.dll
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\ht 20 projekt.pdb
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\Raylib-cs.dll
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libraylib.so
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libraylib.so
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libraylib.dylib
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\raylib.dll
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\raylib.dll
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.csproj.CopyComplete
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.dll
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.pdb
+C:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\obj\Debug\netcoreapp3.1\ht 20 projekt.genruntimeconfig.cache
