@@ -1,0 +1,11 @@
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\ht 20 projekt.exe
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\ht 20 projekt.dll
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\ht 20 projekt.deps.json
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\ht 20 projekt.runtimeconfig.json
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\ht 20 projekt.pdb
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\Raylib-cs.dll
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\runtimes\linux-x64\native\libraylib.so
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\runtimes\linux-x86\native\libraylib.so
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\runtimes\osx-x64\native\libraylib.dylib
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\runtimes\win-x64\native\raylib.dll
+c:\NTI 2020\programmering\Ht 20 projekt\ht 20 projekt\bin\Debug\netcoreapp3.1\publish\runtimes\win-x86\native\raylib.dll
