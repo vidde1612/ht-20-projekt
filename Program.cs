@@ -15,7 +15,7 @@ namespace ht_20_projekt
 
             Raylib.SetTargetFPS(60);
 
-            string scene = "game";
+            string scene = "menu";
 
             //Font stringFont = new Font("Arial", 16);
 
@@ -31,7 +31,8 @@ namespace ht_20_projekt
             float posY2 = 0;
             float playerHeight = 100;
             float playerWidth = 50;
-            float speed1 = 15:
+            
+
 
             //Sätter värden för delta time, tiden mellan två frames för att spelet inte ska påverkas av fps (sidenote "double" hade även funkat)
             float lastFrameTime = 0;
@@ -69,40 +70,39 @@ namespace ht_20_projekt
                 }
                 else if(scene == "game")
                 {
-                    //player 1 movements
+                    //player 1 movements (bytte ut 1 * playerMoveSpeedX mot "15" och lyckades med collisions då)
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
                     {
-                    posX -= 1 * playerMoveSpeedX;
+                    posX -= playerMoveSpeedX;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
                     {
-                    posX += 1 * playerMoveSpeedX;
+                    posX += playerMoveSpeedX;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
                     {
-                    posY -= 1 * playerMoveSpeedY;
+                    posY -= playerMoveSpeedY;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
                     {
-                    posY += 1 * playerMoveSpeedY;
+                    posY += playerMoveSpeedY;
                     }
-
                     //player 2 movements
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
                     {
-                    posX2 -= 1 * playerMoveSpeedX2;
+                    posX2 -= 15;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
                     {
-                    posX2 += 1 * playerMoveSpeedX2;
+                    posX2 += 15;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
                     {
-                    posY2 -= 1 * playerMoveSpeedY2;
+                    posY2 -= 15;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
                     {
-                    posY2 += 1 * playerMoveSpeedY2;
+                    posY2 += 15;
                     }
                     
                     //ändra scene till menyn från game
@@ -112,25 +112,47 @@ namespace ht_20_projekt
                     }
 
                     //player 1 collision
-                    if(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT) && posX < 0)
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT) && posX < 0)
                     {
-                        playerMoveSpeedX = speed1;
+                        posX += playerMoveSpeedX;
                     }
 
-                     if(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT) && posX > 1150)
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT) && posX > 1155)
                     {
-                        posX = -playerMoveSpeedX;
+                        posX -= playerMoveSpeedX;
                     }
 
-                     if(Raylib.IsKeyDown(KeyboardKey.KEY_UP) && posX < 0)
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_UP) && posY < 0)
                     {
-                        posX = -playerMoveSpeedX;
+                        posY += playerMoveSpeedY;
                     }
 
-                     if(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN) && posX < 0)
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN) && posY > 705)
                     {
-                        posX = -playerMoveSpeedX;
+                        posY -= playerMoveSpeedY;
                     }
+
+                    //player 2 collision
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_A) && posX2 < 0)
+                    {
+                        posX2 += playerMoveSpeedX2;
+                    }
+
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_D) && posX2 >= 1150)
+                    {
+                        posX2 -= playerMoveSpeedX2;
+                    }
+
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && posY2 < 0)
+                    {
+                        posY2 += playerMoveSpeedY2;
+                    }
+
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_S) && posY2 >= 700)
+                    {
+                        posY2 -= playerMoveSpeedY2;
+                    }
+
 
                     if (Raylib.CheckCollisionRecs(playerRect, enemyRect))
                     {
@@ -150,6 +172,7 @@ namespace ht_20_projekt
                 }
 
                 Raylib.EndDrawing();
+            
             }
         }
     }
