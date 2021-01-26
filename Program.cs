@@ -8,6 +8,7 @@ namespace ht_20_projekt
     {
         static void Main(string[] args)
         {
+
             int height = 800;
             int width = 1200;
 
@@ -21,36 +22,41 @@ namespace ht_20_projekt
 
             Rectangle playerRect;
             Rectangle enemyRect;
-            float playerMoveSpeedX = 15;
-            float playerMoveSpeedY = 15;
-            float playerMoveSpeedX2 = 15;
-            float playerMoveSpeedY2 = 15;
-            float posX = 0;
-            float posY = 0;
-            float posX2 = 0;
-            float posY2 = 0;
-            float playerHeight = 100;
-            float playerWidth = 50;
-            
-
+            float playerMoveSpeed = 15f;
+            float posX = 0f;
+            float posY = 700f;
+            float posX2 = 1150f;
+            float posY2 = 700f;
+            float playerHeight = 100f;
+            float playerWidth = 50f;
+            bool playerJumping = false;
+            float gravity = 9.82f;
+            float force = 100f;
 
             //Sätter värden för delta time, tiden mellan två frames för att spelet inte ska påverkas av fps (sidenote "double" hade även funkat)
-            float lastFrameTime = 0;
-            float currentFrameTime = 0;
-            float deltaTime = 0;
-
-            Color red = new Color(255, 0, 0, 128);
+            float lastFrameTime = 0f;
+            float currentFrameTime = 0f;
+            float deltaTime = 0f;
 
             Texture2D galaxyImage = Raylib.LoadTexture("galaxy.png");
 
             while(!Raylib.WindowShouldClose())
             {
+                //Visar FPS, frame time, time, delta time och player positions X & y värden
+                Raylib.DrawRectangle(0, 0, 200, 100, Color.BLACK);
+                Raylib.DrawText("FPS: " + Raylib.GetFPS().ToString(), 12, 12, 12, Color.WHITE);
+                Raylib.DrawText("Frame Time: " + Raylib.GetFrameTime().ToString(), 12, 24, 12, Color.WHITE);
+                Raylib.DrawText("Time: " + Raylib.GetTime().ToString(), 12, 36, 12, Color.WHITE);
+                Raylib.DrawText("Delta Time: " + deltaTime.ToString(), 12, 48, 12, Color.WHITE);
+                Raylib.DrawText("PlayerOne Pos: " + posX + " , Y: " + posY, 12, 60, 12, Color.WHITE);
+                Raylib.DrawText("PlayerOne Pos: " + posX2 + " , Y: " + posY2, 12, 72, 12, Color.WHITE);
+
                 lastFrameTime = currentFrameTime;
                 currentFrameTime = (float)Raylib.GetTime() ;
                 deltaTime = currentFrameTime - lastFrameTime;
 
-                enemyRect = new Rectangle(posX,posY, playerWidth, playerHeight);
-                playerRect = new Rectangle(posX2, posY2, playerWidth, playerHeight);
+                playerRect = new Rectangle(posX, posY, playerWidth, playerHeight);
+                enemyRect = new Rectangle(posX2, posY2, playerWidth, playerHeight);
 
                 //Raylib.DrawTexture(galaxyImage, 0, 0, Color.WHITE);
 
@@ -64,95 +70,90 @@ namespace ht_20_projekt
 
                     Raylib.BeginDrawing();
 
-                    Raylib.ClearBackground(Color.DARKBLUE);
+                    Raylib.ClearBackground(Color.BLACK);
 
-                    Raylib.DrawText("Welcome to pew pew guns", width/2 - 50, height/2 - 25, 50, red);
+                    Raylib.DrawText("Welcome to pew pew guns", 300, height/2 - 25, 50, Color.WHITE);
                 }
                 else if(scene == "game")
                 {
-                    //player 1 movements (bytte ut 1 * playerMoveSpeedX mot "15" och lyckades med collisions då)
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
-                    {
-                    posX -= playerMoveSpeedX;
-                    }
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
-                    {
-                    posX += playerMoveSpeedX;
-                    }
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
-                    {
-                    posY -= playerMoveSpeedY;
-                    }
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
-                    {
-                    posY += playerMoveSpeedY;
-                    }
-                    //player 2 movements
+                    //player 1 movements )
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_A))
                     {
-                    posX2 -= 15;
+                        posX -= playerMoveSpeed;
                     }
                     if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
                     {
-                    posX2 += 15;
+                        posX += playerMoveSpeed;
                     }
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_W))
+
+                    //player 2 movements
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
                     {
-                    posY2 -= 15;
+                        posX2 -= 15f;
                     }
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_S))
+                    if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
                     {
-                    posY2 += 15;
+                        posX2 += 15f;
                     }
-                    
+
+                    //player 1 keep in screen
+                    if((posX + playerWidth) >= width) 
+                    {
+                        posX = width - playerWidth;
+                    }
+
+                    if (posX <= 0f) 
+                    {
+                        posX = 0f;
+                    }
+
+                    if((posY + playerHeight) >= height)
+                    {
+                        posY = height - playerHeight;
+                    }
+
+                    if(posY <= 0f)
+                    {
+                        posY = 0f;
+                    }
+
+                    //player 2 keep in screen
+                    if((posX2 + playerWidth) >= width) 
+                    {
+                        posX2 = width - playerWidth;
+                    }
+
+                    if (posX2 <= 0f) 
+                    {
+                        posX2 = 0f;
+                    }
+
+                    if((posY2 + playerHeight) >= height)
+                    {
+                        posY2 = height - playerHeight;
+                    }
+
+                    if(posY2 <= 0f)
+                    {
+                        posY2 = 0f;
+                    }
+
+                    //player 1 gravity
+                    if(!playerJumping)
+                    {
+                        posY += gravity;
+                    }
+
+                    else if(Raylib.IsKeyPressed(KeyboardKey.KEY_W))
+                    {
+                        posY -= force;
+                    }
+         
                     //ändra scene till menyn från game
                     if(Raylib.IsKeyPressed(KeyboardKey.KEY_ENTER))
                     {
                         scene = "menu";    
                     }
-
-                    //player 1 collision
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT) && posX < 0)
-                    {
-                        posX += playerMoveSpeedX;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT) && posX > 1155)
-                    {
-                        posX -= playerMoveSpeedX;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_UP) && posY < 0)
-                    {
-                        posY += playerMoveSpeedY;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN) && posY > 705)
-                    {
-                        posY -= playerMoveSpeedY;
-                    }
-
-                    //player 2 collision
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_A) && posX2 < 0)
-                    {
-                        posX2 += playerMoveSpeedX2;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_D) && posX2 >= 1150)
-                    {
-                        posX2 -= playerMoveSpeedX2;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_W) && posY2 < 0)
-                    {
-                        posY2 += playerMoveSpeedY2;
-                    }
-
-                    if (Raylib.IsKeyDown(KeyboardKey.KEY_S) && posY2 >= 700)
-                    {
-                        posY2 -= playerMoveSpeedY2;
-                    }
-
 
                     if (Raylib.CheckCollisionRecs(playerRect, enemyRect))
                     {
@@ -162,13 +163,15 @@ namespace ht_20_projekt
 
                     Raylib.BeginDrawing();
 
+                    Raylib.DrawText(posX.ToString(), 600, 400, 32, Color.BLACK);
+
                     Raylib.ClearBackground(Color.GRAY);
 
-                    Raylib.DrawRectangleRec(playerRect, Color.BLACK);
+                    Raylib.DrawRectangleRec(playerRect, Color.GREEN);
 
                     Raylib.DrawRectangleRec(enemyRect, Color.BLACK);
 
-                    Raylib.DrawText(scene, 50, 50, 30, Color.BLACK);
+                    Raylib.DrawText(scene, width-150, 20, 50, Color.BLACK);
                 }
 
                 Raylib.EndDrawing();
